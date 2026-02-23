@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.blue-header {
+  background: linear-gradient(#5bc0eb, #2a9fd6);
+  color: #fff;
+}
+
+.k-grid-header th:first-child {
+  @apply h-[250px];
+}
+
+
+.k-grid-header-menu .k-svg-i-more-vertical,
+.k-grid-header-menu svg {
+  display: none !important;
+}
+
+.k-grid-header-menu::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23555' d='M3 5h18l-7 8v6l-4-2v-4z'/%3E%3C/svg%3E")
+    no-repeat center;
+  background-size: 14px 14px;
+}
+.k-grid-header-menu {
+  margin-left: 6px;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.k-columnmenu-item {
+  display: none !important
+}
+

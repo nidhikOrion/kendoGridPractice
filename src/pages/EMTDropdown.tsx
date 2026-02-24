@@ -14,11 +14,11 @@ export default function EMTDropdown() {
   const optionsReport: string[] = ["02/15/2026", "01/10/2026"];
   const workFlow: string[] = ["Workflow 1", "Workflow 2"];
   const [auditYear, setAuditYear] = useState<string | number>("2025");
-  const [businessUnit, setBusinessUnit] = useState<string | number>("2025");
-  const [fiscalStatus, setFiscalStatus] = useState<string | number>("2025");
-  const [reportAs, setReportAs] = useState<string | number>("2025");
-  const [workFlowUnit, setWorkFlowUnit] = useState<string | number>("2025");
-  const [isShowSummary, setIsShowSummary] = useState<boolean>(true);
+  const [businessUnit, setBusinessUnit] = useState<string | number | undefined>(undefined);
+  const [fiscalStatus, setFiscalStatus] = useState<string | number>("All");
+  const [reportAs, setReportAs] = useState<string | number>();
+  const [isShowSummary, setIsShowSummary] = useState<Boolean>(true);
+  const [workFlowUnit, setWorkFlowUnit] = useState<string | number>("");
   const handleAuditYear = (e: ChangeEvent<HTMLSelectElement>) => {
     setAuditYear(e.currentTarget.value);
   }
@@ -33,6 +33,13 @@ export default function EMTDropdown() {
   }
   const handleReportAs = (e: ChangeEvent<HTMLSelectElement>) => {
     setReportAs(e.currentTarget.value);
+  }
+  const handleAllClear = () => {
+    setAuditYear("2025");
+    setFiscalStatus("All");
+    setReportAs("");
+    setBusinessUnit(undefined)
+    setWorkFlowUnit("")
   }
 
   return (<div className='border-4 border-gray-100  rounded-lg'>
@@ -89,15 +96,7 @@ export default function EMTDropdown() {
               handleDropdown={handleReportAs}
               selectedVal={reportAs}
               labelText="Report as of"
-            />
-
-            <FilterComponent
-              optionsData={optionsReport}
-              handleDropdown={handleReportAs}
-              selectedVal={reportAs}
-              labelText="Report as of"
-            />
-          </div>
+            />          </div>
         </div>
 
         <div className="flex gap-2 m-2 justify-end">
@@ -105,7 +104,7 @@ export default function EMTDropdown() {
             <FaPlay /> Run Report
           </button>
 
-          <button className="flex items-center gap-2 bg-gray-200 p-2 rounded-lg border border-gray-300">
+          <button className="flex items-center gap-2 bg-gray-200 p-2 rounded-lg border border-gray-300 cursor-pointer" onClick={handleAllClear}>
             <AiOutlineStop /> Clear Search
           </button>
         </div>

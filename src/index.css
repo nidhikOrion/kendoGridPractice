@@ -66,3 +66,17 @@
   display: none !important
 }
 
+.orange-header {
+  background: linear-gradient(#db6217, #d6a82a);
+  color: #fff;
+}
+ 
+.blue-header-extra {
+  background: linear-gradient(#f1b3b3, #f0925f);
+  color: #fff;
+}
+ 
+.k-cell-inner>.k-link {
+  cursor: auto !important;
+}
+

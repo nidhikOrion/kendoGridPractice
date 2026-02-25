@@ -2,118 +2,127 @@
     "columns": {
         "base": [
             {
+                "id": "client",
                 "field": "client",
                 "title": "Client Name",
                 "width": 155,
                 "locked": true
             },
             {
+                "id": "projectCode",
                 "field": "projectCode",
                 "title": "Project Code",
                 "width": 155,
                 "locked": true
             },
             {
+                "id": "projectName",
                 "field": "projectName",
                 "title": "Project Name",
                 "width": 155,
                 "locked": true
             },
             {
+                "id": "opinion",
                 "field": "opinion",
                 "title": "Opinion",
                 "width": 155,
                 "locked": true
             },
             {
+                "id": "col1",
                 "field": "col1",
                 "title": "Col 1",
                 "width": 200,
                 "isCollapsible": true,
+                "orange": true,
                 "collapseInfo": [
-                    "extra1",
-                    "extra2",
-                    "extra3",
-                    "extra4"
+                    {
+                        "id": "extra1",
+                        "field": "extra1",
+                        "title": "Extra 1",
+                        "width": 200
+                    },
+                    {
+                        "id": "extra2",
+                        "field": "extra2",
+                        "title": "Extra 2",
+                        "width": 200
+                    },
+                    {
+                        "id": "extra3",
+                        "field": "extra3",
+                        "title": "Extra 3",
+                        "width": 200
+                    },
+                    {
+                        "id": "extra4",
+                        "field": "extra4",
+                        "title": "Extra 4",
+                        "width": 200
+                    }
                 ]
             },
             {
+                "id": "col2",
                 "field": "col2",
                 "title": "Col 2",
                 "width": 200
             },
             {
+                "id": "col3",
                 "field": "col3",
                 "title": "Col 3",
                 "isCollapsible": true,
                 "collapseInfo": [
-                    "extra5",
-                    "extra6",
-                    "extra7",
-                    "extra8"
+                    {
+                        "id": "extra5",
+                        "field": "extra5",
+                        "title": "Extra 5",
+                        "width": 200
+                    },
+                    {
+                        "id": "extra6",
+                        "field": "extra6",
+                        "title": "Extra 6",
+                        "width": 200
+                    },
+                    {
+                        "id": "extra7",
+                        "field": "extra7",
+                        "title": "Extra 7",
+                        "width": 200
+                    },
+                    {
+                        "id": "extra8",
+                        "field": "extra8",
+                        "title": "Extra 8",
+                        "width": 200
+                    }
                 ],
                 "width": 200,
                 "blue": true
             },
             {
+                "id": "col4",
                 "field": "col4",
                 "title": "Col 4",
                 "width": 200,
                 "blue": true
             },
             {
+                "id": "col5",
                 "field": "col5",
                 "title": "Col 5",
                 "width": 200,
                 "blue": true
             },
             {
+                "id": "col6",
                 "field": "col6",
                 "title": "Col 6",
                 "width": 200,
                 "blue": true
-            }
-        ],
-        "extra": [
-            {
-                "field": "extra1",
-                "title": "Extra 1",
-                "width": 200
-            },
-            {
-                "field": "extra2",
-                "title": "Extra 2",
-                "width": 200
-            },
-            {
-                "field": "extra3",
-                "title": "Extra 3",
-                "width": 200
-            },
-            {
-                "field": "extra4",
-                "title": "Extra 4",
-                "width": 200
-            },
-            {
-                "field": "extra5",
-                "title": "Extra 5",
-                "width": 200
-            },
-            {
-                "field": "extra6",
-                "title": "Extra 6",
-                "width": 200
-            },
-            {
-                "field": "extra7",
-                "title": "Extra 7",
-                "width": 200
-            },
-            {
-                "field": "extra8",
-                "title": "Extra 8",
-                "width": 200
             }
         ]
     },
@@ -915,6 +924,402 @@
         },
         {
             "gridId": 14,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 15,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 16,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 17,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 18,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 19,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 20,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 21,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 22,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 23,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 24,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 25,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 26,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 27,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 28,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 29,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 30,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 31,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 32,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 33,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 34,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 35,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 36,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 37,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 38,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 39,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 40,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 41,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 42,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 43,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 44,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 45,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 46,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 47,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 48,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 49,
+            "extra1": 2.1,
+            "extra2": 3.2,
+            "extra3": 4.3,
+            "extra4": 5.4,
+            "extra5": 6.1,
+            "extra6": 7.2,
+            "extra7": 8.3,
+            "extra8": 9.4
+        },
+        {
+            "gridId": 50,
             "extra1": 2.1,
             "extra2": 3.2,
             "extra3": 4.3,

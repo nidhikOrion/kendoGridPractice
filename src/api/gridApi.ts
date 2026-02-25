@@ -1,22 +1,27 @@
 // gridApi.ts
-import type { GridItem } from '../models/grid.type';
+// import type { GridItem } from '../models/grid.type';
+import type { GridItem } from "../models/grid.type";
+import datas from "./../../db.json"
 
-export const fetchGridData = async (
+
+
+export const fetchGridData =async (
   skip: number,
   take: number
-): Promise<{ data: GridItem[]; total: number }> => {
+) => {
 
-  const params = new URLSearchParams();
-  params.append('_start', String(skip));
-  params.append('_end', String(skip + take));
+  const res = datas.gridData.slice(skip, (skip + take));
+  const extraData = datas.extraData.slice(skip, (skip + take));
 
-  const url = `http://localhost:4000/gridData?${params.toString()}`;
+  const gridMap = res.reduce((acc: any, item:GridItem ) => {
+    const match = extraData.find(g => g.gridId === item.id)
+    if (match) {
+      const { gridId, ...rest } = match;
+      acc.push({ ...item, ...rest })
+    }
+    return acc
+  }, [])
 
-  const res = await fetch(url);
-  const data = await res.json();
-
-  return {
-    data,
-    total: Number(res.headers.get('X-Total-Count')) || 50
-  };
+  return { data: gridMap, total: datas.gridData.length }
 };
+

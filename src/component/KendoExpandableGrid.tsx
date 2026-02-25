@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState, useRef } from 'react';
 import { Grid } from '@progress/kendo-react-grid';
 import type { GridPageChangeEvent } from '@progress/kendo-react-grid';
 import type {
@@ -7,20 +7,18 @@ import type {
 } from '@progress/kendo-data-query';
 import { process } from '@progress/kendo-data-query';
 import { Loader } from '@progress/kendo-react-indicators';
-import AddIcon from "@mui/icons-material/Add";
 
 import type { GridItem, ColumnConfig } from '../models/grid.type';
 import { CustomToolbar } from './CustomGridToolbar';
-// import { YellowRowWithPlus } from './CollapsibleHeader';
-// import { EmptyAlignedRow } from './EmptyAlignedRow';
-import { CustomColumnMenu } from './CustomColumnMenu';
 
 import { fetchColumnConfig } from '../api/columnApi';
 import { useKendoGridData } from '../hooks/useKendoGridData';
 import EMTDropdown from '../pages/EMTDropdown';
-// import { HeaderThElement } from '@progress/kendo-react-data-tools';
-import { columns } from './internal/ColumnCell';
+import { columns } from "./internal/ColumnCell";
 import ColorKey from './ColorKey';
+import { ExcelExport } from "@progress/kendo-react-excel-export";
+import { ExcelExportColumn } from "@progress/kendo-react-excel-export";
+import { PDFExport } from "@progress/kendo-react-pdf";
 
 
 const KendoExpandableGrid: React.FC = () => {
@@ -31,13 +29,14 @@ const KendoExpandableGrid: React.FC = () => {
     loading,
     pageState,
     setPageState,
-    // fetchExtraDataIfNeeded
   } = useKendoGridData();
+
+  const excelExportRef = useRef<ExcelExport>(null);
+  const pdfExportRef = useRef<PDFExport>(null);
 
   /* ---------- UI-only state ---------- */
   const [sort, setSort] = useState<SortDescriptor[]>([]);
   const [filter, setFilter] = useState<CompositeFilterDescriptor | null>(null);
-  // const [expandedMap, setExpandedMap] = useState<Record<string, boolean>>({});
   const [baseColumns, setBaseColumns] = useState<ColumnConfig[]>([]);
 
   /* ---------- fetch column config ---------- */
@@ -56,6 +55,21 @@ const KendoExpandableGrid: React.FC = () => {
     };
   }, []);
 
+  const handleExcelExport = () => {
+    excelExportRef.current?.save();
+  };
+
+  const handlePDFExport = () => {
+    pdfExportRef.current?.save();
+  };
+
+  const exportData = useMemo(() => {
+    return process(data, {
+      sort,
+      filter: filter ?? undefined
+    }).data;
+  }, [data, sort, filter]);
+
 
   /* ---------- handlers ---------- */
   const onPageChange = useCallback((e: GridPageChangeEvent) => {
@@ -73,25 +87,6 @@ const KendoExpandableGrid: React.FC = () => {
     setFilter(e.filter);
   }, []);
 
-  // const toggleColumn = useCallback(
-  //   async (field: string) => {
-  //     setExpandedMap(prev => {
-  //       const willExpand = !prev[field];
-
-  //       if (willExpand) {
-  //         fetchExtraDataIfNeeded(); // fire & forget
-  //       }
-
-  //       return {
-  //         ...prev,
-  //         [field]: willExpand
-  //       };
-  //     });
-  //   },
-  //   [fetchExtraDataIfNeeded]
-  // );
-
-
   /* ---------- client-side sort + filter ---------- */
   const processedData = useMemo(() => {
     return process(data, {
@@ -104,53 +99,61 @@ const KendoExpandableGrid: React.FC = () => {
 
   const columnsData = columns({ baseColumns, processedData });
 
+  const exportColumns = useMemo(() => {
+    return baseColumns.map(col => (
+      <ExcelExportColumn
+        key={col.field}
+        field={col.field}
+        title={col.title}
+        width={col.width || 150}
+      />
+    ));
+  }, [baseColumns]);
+
   /* ---------- render ---------- */
   return (
-    <div className="grid-page w-full h-screen flex flex-col relative ">
+    <div className="grid-page w-full flex flex-col relative">
       <EMTDropdown />
-      {/* <div className="bg-[#efefef] border-y border-gray-300 h-9 flex items-center px-4 text-[13px] text-gray-800 cursor-pointer select-none hover:bg-[#e5e5e5] transition">
-        <AddIcon sx={{ fontSize: 18 }} />
-        <span className="ml-2 font-medium">Color Key</span>
-      </div> */}
-      <ColorKey/>
-      <CustomToolbar />
+      <ColorKey />
+      <CustomToolbar
+        onExcelExport={handleExcelExport}
 
-      {/* <YellowRowWithPlus
-        expandedMap={expandedMap}
-        onToggle={toggleColumn}
-        baseColumns={baseColumns}
-      /> */}
+      />
 
-      {/* <EmptyAlignedRow baseColumns={baseColumns} /> */}
 
       {loading && (
         <div className="absolute inset-0 z-50 flex items-center justify-center bg-white/60">
           <Loader type="infinite-spinner" size="large" />
         </div>
       )}
+      <div className="bg-white">
+        <ExcelExport
+          data={exportData}
+          ref={excelExportRef}
+          fileName="Engagement_Report.xlsx"
+        >
+          {exportColumns}
 
-      <Grid
-        data={processedData}
-        total={total}
-        skip={pageState.skip}
-        take={pageState.take}
-        pageable
-        sortable={{ allowUnsort: true, mode: 'single' }}
-        filterable={false}
-        sort={sort}
-        filter={filter ?? undefined}
-        scrollable="scrollable"
-        resizable
-        selectable={false}
-        onPageChange={onPageChange}
-        onSortChange={onSortChange}
-        onFilterChange={onFilterChange}
-      >
-        {columnsData}
-
-        
-      </Grid>
-    </div>
+          <Grid
+            data={processedData}
+            total={total}
+            skip={pageState.skip}
+            take={pageState.take}
+            pageable
+            sortable={{ allowUnsort: true, mode: 'single' }}
+            sort={sort}
+            filter={filter ?? undefined}
+            scrollable="scrollable"
+            resizable
+            onPageChange={onPageChange}
+            onSortChange={onSortChange}
+            onFilterChange={onFilterChange}
+          >
+            {columnsData}
+          </Grid>
+        </ExcelExport>
+      </div>
+    </div >
   );
 };
 

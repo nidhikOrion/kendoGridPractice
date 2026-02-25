@@ -1,7 +1,6 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { GridItem } from '../models/grid.type';
 import { fetchGridData } from '../api/gridApi';
-import { fetchExtraData } from '../api/columnApi';
 
 const PAGE_SIZE = 10;
 
@@ -10,10 +9,6 @@ export const useKendoGridData = () => {
   const [data, setData] = useState<GridItem[]>([]);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(false);
-
-  const [extraDataMap, setExtraDataMap] = useState<
-    Record<number, Partial<GridItem>>
-  >({});
 
   /* -------- fetch base grid data -------- */
   useEffect(() => {
@@ -33,30 +28,11 @@ export const useKendoGridData = () => {
     };
   }, [pageState]);
 
-  /* -------- lazy-load extra columns -------- */
-  const fetchExtraDataIfNeeded = useCallback(async () => {
-    if (Object.keys(extraDataMap).length > 0) return;
-
-    const extraData = await fetchExtraData();
-    setExtraDataMap(extraData);
-  }, [extraDataMap]);
-
-  /* -------- merge base + extra -------- */
-  const mergedData = useMemo(() => {
-    if (!Object.keys(extraDataMap).length) return data;
-
-    return data.map(row => ({
-      ...row,
-      ...(extraDataMap[row.id] || {})
-    }));
-  }, [data, extraDataMap]);
-
   return {
-    data: mergedData,
+    data,
     total,
     loading,
     pageState,
-    setPageState,
-    fetchExtraDataIfNeeded
+    setPageState
   };
 };

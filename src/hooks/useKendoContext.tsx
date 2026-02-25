@@ -18,10 +18,10 @@ export const ExpandCollapseProvider = ({ children }: { children: React.ReactNode
 };
 
 // Safe hook: never undefined
-export function useSelectedKendo() {
+export function useExpandCollapse() {
   const ctx = useContext(ExpandCollapseContext);
   if (!ctx) {
-    throw new Error('useSelectedKendo must be used within a SelectedKendoProvider');
+    throw new Error('useExpandCollapse must be used within a SelectedKendoProvider');
   }
   return ctx;
 }
